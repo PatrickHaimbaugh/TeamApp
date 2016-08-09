@@ -65,9 +65,13 @@ namespace TeamApp.Models
     public class RegisterViewModel
     {
         [Required]
+        [RegularExpression(@"^[a-zA-Z0-9]+@bishopchatard\.org$", ErrorMessage = "Please use school email")]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Display(Name ="Team Name")]
+        public string TeamName { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
